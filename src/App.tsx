@@ -7,8 +7,9 @@ function App() {
   return (
     <div>
       this is App
-      <Rating value = {2}/>
-      <Accordeon title = {'menu'}/>
+      <Rating value = {1}/>
+      {/* <Accordeon title = {'menu'} collapsed = {true}/>
+      <Accordeon title = {'users'} collapsed = {true}/> */}
     </div>
   );
 }
