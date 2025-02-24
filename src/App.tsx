@@ -1,4 +1,5 @@
 
+import { useState } from 'react';
 import './App.css';
 import { Accordeon } from './Components/Accordeon/Accordeon';
 import { OnOff } from './Components/OnOff/OnOff';
@@ -7,13 +8,16 @@ import { UncontroledAccordeon } from './Components/UncontroledAccordeon/Uncontro
 import { UncontroledRating } from './Components/UncontroledRaiting/UncontroledRaiting';
 
 function App() {
+
+const [switchOn , setSwitchOn] = useState<boolean>(false)
+
   return (
     <div className='App'>
      
-     <UncontroledAccordeon title='menu' />
-    < UncontroledRating />
+     {/* <UncontroledAccordeon title='menu' />
+    < UncontroledRating /> */}
 
-      {/* <OnOff on={false} /> */}
+      <OnOff on={switchOn} onChange={ (on) => {setSwitchOn(on)}}/>
       {/* <Rating value = {1}/>
       <Accordeon title = {'menu'} collapsed = {true}/>
       <Accordeon title = {'users'} collapsed = {true}/> */}
