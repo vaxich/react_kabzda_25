@@ -3,10 +3,12 @@
 type AccordeonPropsType = {
   title: string
   collapsed: boolean
+  onChange? : () => void
 }
 
 type AccordeonTitlePropsType = {
   title: string
+  onChange? : () => void
 }
 
 export const Accordeon = (props: AccordeonPropsType) => {
@@ -16,7 +18,7 @@ export const Accordeon = (props: AccordeonPropsType) => {
   if (collapsed) {// если collapsed false тогда НЕ отрисовываем AccordionBody
     return (
       <div>
-        <AccordionTitle title={title} />
+        <AccordionTitle title={title} onChange={props.onChange}/>
         { !collapsed  && <AccordionBody /> } 
         <AccordionBody />
       </div>
@@ -24,7 +26,7 @@ export const Accordeon = (props: AccordeonPropsType) => {
   } else {
     return (
       <div>
-        <AccordionTitle title={title} />
+        <AccordionTitle title={title} onChange={props.onChange}/>
       </div>
     )
   }
@@ -36,7 +38,7 @@ export const Accordeon = (props: AccordeonPropsType) => {
 const AccordionTitle = (props: AccordeonTitlePropsType) => {
   return (
     <div>
-      <h3>---{props.title}</h3>
+      <h3 onClick={ (e) => props.onChange}>---{props.title}</h3>
     </div>
   )
 }
